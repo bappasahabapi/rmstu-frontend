@@ -4,8 +4,8 @@
 
 
 ## Branches
-- 02. [Redux+RTK+ Antdesign Integrated](https://nextjs.org/learn) - This is redux starter .
-- 01. [main](https://nextjs.org/learn) - This is main branch of **next js 13.4 app route** with ts.
+- 02. [Redux+RTK+ Antdesign Integrated](https://github.com/bappasahabapi/rmstu-frontend/tree/02/v1/redux-starter) - This is redux starter .
+- 01. [main](https://github.com/bappasahabapi/rmstu-frontend) - This is main branch of **next js 13.4 app route** with ts.
 
 
 
