@@ -4,9 +4,10 @@ import {
     UserOutlined,
   } from '@ant-design/icons';
 import { USER_ROLE } from './role';
+import Link from 'next/link';
 
 export const sidebaritems = (role:string) => {
-    console.log(role)
+    // console.log(role)
     const defaultSidebarItems:MenuProps['items']=[
         {
             label:'👨‍🎓 Student Profile',
@@ -24,6 +25,13 @@ export const sidebaritems = (role:string) => {
                 },
             ] 
         }
-    ]
+    ];
+
+    const commonAdminSidebarItems:MenuProps['items'] =[{
+        label:<Link href={`/${role}/manage-student`}>Manage Students</Link>    ,
+        key:'manage-students',
+    }];
+
      if(role === USER_ROLE.STUDENT)  return defaultSidebarItems;
+     else if(role === USER_ROLE.SUPER_ADMIN)  return commonAdminSidebarItems;
 };
