@@ -23,11 +23,11 @@
 
 - first break down the dashboard layout into two parts: sidebar and layout for content.
 - Make sidebar.tsx static and show out content right side
-- Route:
+- `Route`:
     - http://localhost:3000/super-admin
     - http://localhost:3000/student
 
-
+4️⃣. **Create Sidebar options based on User Roles**
 
 
 
