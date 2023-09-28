@@ -10,4 +10,19 @@
 
 
 
+# Notes:
+
+ 2️⃣.
+
+- Route: `http://localhost:3000/student`
+- Make `layout.tsx`, `loading.tsx`, `not-found.tsx`, `error.tsx` component same as next doc
+- `https://ant.design/docs/react/use-with-next`
+-  Use antd with next and provide the `StyledComponentsRegistry` component to the `Providers.tsx `.
+
+3️⃣. **Customized Next js default layout & group wise layout.**
+
+
+
+
+
 

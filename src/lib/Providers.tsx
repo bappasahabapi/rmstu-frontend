@@ -7,7 +7,7 @@ import StyledComponentsRegistry from "./AntdRegistry";
 const Providers = ({ children }: { children: React.ReactNode }) => {
     //this will return redux provider
     return (
-        <Provider store={store}>
+        <Provider store={store}>   
             <StyledComponentsRegistry>
                 {children}
             </StyledComponentsRegistry>
