@@ -1,7 +1,7 @@
 
 import type { MenuProps } from 'antd';
 import {
-    UserOutlined,
+    ProfileFilled
   } from '@ant-design/icons';
 import { USER_ROLE } from './role';
 import Link from 'next/link';
@@ -10,18 +10,21 @@ export const sidebaritems = (role:string) => {
     // console.log(role)
     const defaultSidebarItems:MenuProps['items']=[
         {
-            label:'👨‍🎓 Student Profile',
+            label:'Profile',
             key:'profile',
-            icon:<UserOutlined/>,
+            icon:<ProfileFilled/>,
             // children-> //means dropdown menu
             children:[
                 {
-                    label:'Account Profile',
-                    key:'account-profile'
+                    // label:'Account Profile',
+                    // key:'account-profile'
+
+                    label:<Link href={`/${role}/profile`}>Account Profile</Link> , 
+                    key:`/${role}/profile`,
                 },
                 {
-                    label:'Change Password',
-                    key:'change-passowrd'
+                    label:<Link href={`/${role}/profile`}>Change Password</Link> , 
+                    key:`/${role}/change-passowrd`,
                 },
             ] 
         }
@@ -33,5 +36,5 @@ export const sidebaritems = (role:string) => {
     }];
 
      if(role === USER_ROLE.STUDENT)  return defaultSidebarItems;
-     else if(role === USER_ROLE.SUPER_ADMIN)  return commonAdminSidebarItems;
+     else if(role === 'super_admin')  return commonAdminSidebarItems;
 };

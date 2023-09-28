@@ -45,10 +45,10 @@ const items: MenuItem[] = [
 
 const Sidebar = () => {
     const [collapsed, setCollapsed] = useState(false);
-    // const role=USER_ROLE.STUDENT
+    const role=USER_ROLE.STUDENT
+    // const role=USER_ROLE.SUPER_ADMIN
     // const role=USER_ROLE.FACULTY
     // const role=USER_ROLE.ADMIN
-    const role=USER_ROLE.SUPER_ADMIN
 
     return (
         <Sider
