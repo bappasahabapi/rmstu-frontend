@@ -21,6 +21,12 @@
 
 3️⃣. **Customized Next js default layout & group wise layout.**
 
+- first break down the dashboard layout into two parts: sidebar and layout for content.
+- Make sidebar.tsx static and show out content right side
+- Route:
+    - http://localhost:3000/super-admin
+    - http://localhost:3000/student
+
 
 
 
