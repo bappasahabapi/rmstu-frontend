@@ -4,6 +4,7 @@
 
 
 ## Branches
+- 05  [**Render Dynamic Sidebar based on User Roles**](https://github.com/bappasahabapi/rmstu-frontend/tree/v1/05/render-dynamic-sidebar) 
 - 04  [USER ROLE Based Sidebar](https://github.com/bappasahabapi/rmstu-frontend/tree/v1/04/role-based-route) 
 - 03  [Basic Routing and Layput](https://github.com/bappasahabapi/rmstu-frontend/tree/v1/03/routing-layout) 
 - 02  [Redux+RTK+ Antdesign Integrated](https://github.com/bappasahabapi/rmstu-frontend/tree/02/v1/redux-starter) - This is redux starter .
@@ -29,7 +30,7 @@
     - http://localhost:3000/student
 
 4️⃣. **Create Sidebar options based on User Roles**
-4️5️⃣. **Render Dynamic Sidebar based on User Roles**
+5️⃣. **Render Dynamic Sidebar based on User Roles**
 
 
 
