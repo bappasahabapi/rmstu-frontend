@@ -14,7 +14,7 @@ type FormProps={
 } & FormConfig;
 
 
-const Forms = ({children,submitHandler,defaultValues}:FormProps) => {
+const Form = ({children,submitHandler,defaultValues}:FormProps) => {
 
     const formConfig:FormConfig={};
 
@@ -22,7 +22,7 @@ const Forms = ({children,submitHandler,defaultValues}:FormProps) => {
     if(!!defaultValues) formConfig["defaultValues"]=defaultValues;
 
     const methods=useForm<FormProps>(formConfig);
-    console.log(methods);
+    // console.log(methods);
 
     const {handleSubmit,reset}=methods;
 
@@ -42,4 +42,4 @@ const Forms = ({children,submitHandler,defaultValues}:FormProps) => {
       )
 };
 
-export default Forms;
+export default Form;
