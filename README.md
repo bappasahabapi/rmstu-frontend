@@ -4,6 +4,7 @@
 
 
 ## Branches
+- 06  [React hook form](https://github.com/bappasahabapi/rmstu-frontend/tree/v1/06/react-hook-form) 
 - 05  [**Render Dynamic Sidebar based on User Roles**](https://github.com/bappasahabapi/rmstu-frontend/tree/v1/05/render-dynamic-sidebar) 
 - 04  [USER ROLE Based Sidebar](https://github.com/bappasahabapi/rmstu-frontend/tree/v1/04/role-based-route) 
 - 03  [Basic Routing and Layput](https://github.com/bappasahabapi/rmstu-frontend/tree/v1/03/routing-layout) 
