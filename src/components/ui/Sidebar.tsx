@@ -7,13 +7,8 @@ import { USER_ROLE } from "@/constants/role";
 
 const { Sider } = Layout;
 
-
 const Sidebar = () => {
     const [collapsed, setCollapsed] = useState(false);
-
-    // const role=USER_ROLE.SUPER_ADMIN
-    // const role=USER_ROLE.STUDENT
-    // const role=USER_ROLE.FACULTY
     const role=USER_ROLE.ADMIN
 
     return (

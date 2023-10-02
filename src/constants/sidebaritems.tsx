@@ -27,12 +27,10 @@ export const sidebaritems = (role: string) => {
             label: 'Profile',
             key: 'profile',
             icon: <ProfileTwoTone />,
+            
             // children-> //means dropdown menu
             children: [
                 {
-                    // label:'Account Profile',
-                    // key:'account-profile'
-
                     label: <Link href={`/${role}/profile`}> Account Profile</Link>,
                     key: `/${role}/profile`,
                     icon: <UserAddOutlined />
@@ -217,10 +215,6 @@ export const sidebaritems = (role: string) => {
           key: `/${role}/academic-report`,
         },
       ];
-
-
-    // if (role === USER_ROLE.STUDENT) return defaultSidebarItems;
-    // else if (role === 'super_admin') return commonAdminSidebarItems;
 
     //todo: role is set in the `sidebar.tsx` file
 
