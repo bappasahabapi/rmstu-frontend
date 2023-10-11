@@ -13,7 +13,7 @@ type FormValues = {
 }
 
 const LoginPage = () => {
-   
+
 
     const onSubmit: SubmitHandler<FormValues> = (data) => {
         try {
@@ -27,10 +27,14 @@ const LoginPage = () => {
 
     return (
         <div>
-            {/* <h1 style={{textAlign:"center",marginTop:"20px"}}>This is login page </h1> */}
-            {/* This grid system is 24 col */}
-            <Row>
-                <Col sm={12} md={16} lg={16} >
+            <Row
+                justify='center'
+                align='middle'
+                style={{
+                    minHeight: '100vh'
+                }}
+            >
+                <Col sm={12} md={18} lg={8} >
                     <Image
                         src={loginImage}
                         width={500}
@@ -38,30 +42,38 @@ const LoginPage = () => {
                     />
                 </Col>
                 <Col sm={12} md={8} lg={8} >
-                    <h1>First login your account</h1>
-                    <div>
+                    <h1
+                        style={{ margin: '15px 0px' }}
+                    >First login your account</h1>
+                    <div >
                         <Form submitHandler={onSubmit}>
-                            <div>
-                                <FormInput
-                                    name="id"
-                                    type="text"
-                                    size="large"
-                                    placeholder="user name"
-                                    label="User Id"
+                            <div >
+                                <div>
+                                    <FormInput
+                                        name="id"
+                                        type="text"
+                                        size="large"
+                                        placeholder="user name"
+                                        label="User Id"
 
-                                />
-                                <FormInput
-                                    name="password"
-                                    type="password"
-                                    size="large"
-                                    placeholder="user passowrd"
-                                    label="User Password"
+                                    />
+                                </div>
 
-                                />
+                                <div style={{ margin: '15px 0px' }}>
+                                    <FormInput
+                                        name="password"
+                                        type="password"
+                                        size="large"
+                                        placeholder="user passowrd"
+                                        label="User Password"
+
+                                    />
+                                </div>
+
                             </div>
-                            <Button 
-                            htmlType="submit"
-                            type="primary"
+                            <Button
+                                htmlType="submit"
+                                type="primary"
                             >
                                 Login
                             </Button>
