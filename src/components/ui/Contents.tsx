@@ -17,10 +17,12 @@ const Contents = ({children}:{children:React.ReactNode}) => {
                 {
                     label:`${base}`,
                     link:`${base}`
+                   
                 },
                 {
                     label:"student",
                     link:`${base}/student`
+                   
                 },
             ]}
             />

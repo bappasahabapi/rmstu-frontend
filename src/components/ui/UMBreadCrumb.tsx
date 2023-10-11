@@ -5,10 +5,11 @@ import {
   } from '@ant-design/icons';
 
 
-  
+
 type Items={
     label:string;
     link:string;
+    
 }
 
 const UMBreadCrumb = ({items}:{items:Items[]}) => {
