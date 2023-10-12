@@ -14,7 +14,7 @@ export const axiosBaseQuery =
       method: AxiosRequestConfig['method']
       data?: AxiosRequestConfig['data']
       params?: AxiosRequestConfig['params']
-      meta:IMeta
+      meta?:IMeta
     },
     unknown,
     unknown
