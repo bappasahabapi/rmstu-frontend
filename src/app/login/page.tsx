@@ -7,7 +7,7 @@ import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
 import { SubmitHandler } from "react-hook-form";
 import { useUserLoginMutation } from "@/redux/api/authApi";
-import { storeUserInfo } from "@/services/auth.service";
+import { getUserInfo, storeUserInfo } from "@/services/auth.service";
 
    // {
             //     "success": true,
@@ -25,6 +25,10 @@ type FormValues = {
 }
 
 const LoginPage = () => {
+
+
+    console.log(getUserInfo()) ;
+
 
     const [userLogin]=useUserLoginMutation()
 
