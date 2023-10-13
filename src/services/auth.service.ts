@@ -3,8 +3,7 @@ import { decodedToken } from "@/utils/jwt";
 import { getFromLocalStorage, setToLocalStorage } from "@/utils/local-storage"
 
 export const storeUserInfo =({accessToken}:{accessToken:string})=>{
-    console.log(accessToken);
-
+    // console.log(accessToken);
     // setToLocalStorage("key",value)
    return setToLocalStorage(authKey,accessToken as string)
 
@@ -13,11 +12,12 @@ export const storeUserInfo =({accessToken}:{accessToken:string})=>{
 export const getUserInfo =()=>{
 
     // const authToken = getFromLocalStorage("key")
-    const authToken = getFromLocalStorage(authKey)
-    console.log(authToken);
+    const authToken = getFromLocalStorage(authKey);
+    // console.log(authToken);
+
     if(authToken){
         const decodedData =decodedToken(authToken)
-        console.log(decodedData)
+        // console.log(decodedData)
         return decodedData;
     }
     else{
@@ -25,4 +25,9 @@ export const getUserInfo =()=>{
     }
 
 };
+
+export const isLoggedIn =()=>{
+    const authToken=getFromLocalStorage(authKey);
+    return !!authToken ;
+}
 
