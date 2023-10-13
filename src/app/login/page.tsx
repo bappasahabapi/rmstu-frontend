@@ -7,6 +7,17 @@ import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
 import { SubmitHandler } from "react-hook-form";
 import { useUserLoginMutation } from "@/redux/api/authApi";
+import { storeUserInfo } from "@/services/auth.service";
+
+   // {
+            //     "success": true,
+            //     "statusCode": 200,
+            //     "message": "User loged in!",
+            //     "data": {
+            //         "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMDAwMSIsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY5NzE3NzgzMiwiZXhwIjoxNzIzMDk3ODMyfQ.YoWmvzPIk6q7wTV3ZOgYni-gMsrmR0xS8_rROzNE9Ec",
+            //         "needsPasswordChange": true
+            //     }
+            // }
 
 type FormValues = {
     id: string;
@@ -17,14 +28,14 @@ const LoginPage = () => {
 
     const [userLogin]=useUserLoginMutation()
 
-
     const onSubmit: SubmitHandler<FormValues> =async(data:any) => {
         try {
             // console.log(data)
-            const res =await userLogin({...data});
+            const res =await userLogin({...data}).unwrap();
             console.log(res)
+            storeUserInfo({accessToken:res?.data?.accessToken});
         }
-        catch (error:any) {console.log(error.message)}
+        catch (error:any) {console.error(error.message)}
     };
 
 
