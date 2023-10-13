@@ -5,7 +5,7 @@ import { createApi } from '@reduxjs/toolkit/query/react'
 // Define a service using a base URL and expected endpoints
 //here we use custom axios
 export const baseApi = createApi({
-  reducerPath: 'api',
+  reducerPath: "api",
 //   baseQuery: fetchBaseQuery({ baseUrl:getBaseUrl() }),
   baseQuery: axiosBaseQuery({ baseUrl:getBaseUrl() }),
   endpoints: (builder) => ({
