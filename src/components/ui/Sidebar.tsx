@@ -4,12 +4,15 @@ import { Layout, Menu } from "antd";
 import { useState } from "react";
 import { sidebaritems } from "@/constants/sidebaritems";
 import { USER_ROLE } from "@/constants/role";
+import { getUserInfo } from "@/services/auth.service";
 
 const { Sider } = Layout;
 
 const Sidebar = () => {
     const [collapsed, setCollapsed] = useState(false);
-    const role=USER_ROLE.ADMIN
+    // const role=USER_ROLE.ADMIN
+    const {role} =getUserInfo() as any;
+    console.log(role)
 
     return (
         <Sider
@@ -28,13 +31,13 @@ const Sidebar = () => {
             <div
             style={{
                 color: 'white',
-                fontSize:'2rem',
+                fontSize:'1.5rem',
                 textAlign:"center",
                 fontWeight:'bold',
-                marginBottom:'1rem'
+                marginBottom:'1 rem'
             }}
             >
-                🏛️-RMSTU
+                🏛️ RMSTU
             </div>
             <Menu 
             theme="dark" 
