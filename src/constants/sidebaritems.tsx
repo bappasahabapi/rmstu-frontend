@@ -31,13 +31,13 @@ export const sidebaritems = (role: string) => {
             // children-> //means dropdown menu
             children: [
                 {
-                    label: <Link href={`/${role}/profile`}> Account Profile</Link>,
+                    label: <Link href={`/${role}`}> Account Profile</Link>,
                     key: `/${role}/profile`,
                     icon: <UserAddOutlined />
                     // icon:'👤'
                 },
                 {
-                    label: <Link href={`/${role}/profile`}>Change Password</Link>,
+                    label: <Link href={`/${role}/change-password`}>Change Password</Link>,
                     key: `/${role}/change-passowrd`,
                     icon: <KeyOutlined />
                 },
@@ -47,12 +47,12 @@ export const sidebaritems = (role: string) => {
 
     const commonAdminSidebarItems: MenuProps['items'] = [
         {
-            label: <Link href={`/${role}/manage-student`}>Manage Students</Link>,
+            label: <Link href={`/${role}/manage-student`}>Manage Student</Link>,
             key: `/${role}/manage-students`,
             icon: <TableOutlined />
         },
         {
-            label: <Link href={`/${role}/manage-faculty`}>Manage Faculties</Link>,
+            label: <Link href={`/${role}/manage-faculty`}>Manage Faculty</Link>,
             key: `/${role}/manage-faculty`,
             icon: <SmileOutlined />
         },
