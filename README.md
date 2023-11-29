@@ -1,3 +1,16 @@
+## Run the frontend
+- **1st** Run the api gateway backend.
+    - `brew service start redis`
+    - `yarn run dev`
+- **2nd** Run the api auth service backend.
+    - `yarn start`
+- **3rd** Run the api core service backend.
+    - `yarn start`
+    
+- **4th** Run the frontend
+    - `yarn start`
+
+
 ##    initical setup done
 - `npm install @reduxjs/toolkit react-redux`
 - `npm install antd --save `
