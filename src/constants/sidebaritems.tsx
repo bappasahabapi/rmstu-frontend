@@ -154,17 +154,17 @@ export const sidebaritems = (role: string) => {
           icon: <TableOutlined />,
           key: `/${role}/user`,
         },
-        {
-          label: "Manage permission",
-          key: "manage-permission",
-          icon: <AppstoreOutlined />,
-          children: [
-            {
-              label: <Link href={`/${role}/permission`}>View permissions</Link>,
-              key: `/${role}/permission`,
-            },
-          ],
-        },
+        // {
+        //   label: "Manage permission",
+        //   key: "manage-permission",
+        //   icon: <AppstoreOutlined />,
+        //   children: [
+        //     {
+        //       label: <Link href={`/${role}/permission`}>View permissions</Link>,
+        //       key: `/${role}/permission`,
+        //     },
+        //   ],
+        // },
         {
           label: "Management",
           key: "management",
