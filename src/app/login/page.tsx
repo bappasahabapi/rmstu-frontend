@@ -38,8 +38,8 @@ const LoginPage = () => {
         try {
             // console.log(data)
             const res = await userLogin({ ...data }).unwrap();
-            // console.log(res)
-            if (res?.data?.accessToken) {
+            console.log(res)
+            if (res?.accessToken) {
                 setShowSuccessMessage(true);
                 setTimeout(() => {
                     setShowSuccessMessage(false);
@@ -47,7 +47,7 @@ const LoginPage = () => {
                   }, 1000);
                 // router.push("/profile")
             }
-            storeUserInfo({ accessToken: res?.data?.accessToken });
+            storeUserInfo({ accessToken: res?.accessToken });
         }
         catch (error: any) { console.error(error.message) }
     };
