@@ -11,17 +11,6 @@ import { getUserInfo, isLoggedIn, storeUserInfo } from "@/services/auth.service"
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-
-// {
-//     "success": true,
-//     "statusCode": 200,
-//     "message": "User loged in!",
-//     "data": {
-//         "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMDAwMSIsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY5NzE3NzgzMiwiZXhwIjoxNzIzMDk3ODMyfQ.YoWmvzPIk6q7wTV3ZOgYni-gMsrmR0xS8_rROzNE9Ec",
-//         "needsPasswordChange": true
-//     }
-// }
-
 type FormValues = {
     id: string;
     password: string;
