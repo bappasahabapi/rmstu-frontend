@@ -43,7 +43,7 @@ const UploadImage = () => {
     };
 
     const uploadButton = (
-        <div>
+        <div >
             {loading ? <LoadingOutlined /> : <PlusOutlined />}
             <div style={{ marginTop: 8}}>Upload</div>
         </div>
