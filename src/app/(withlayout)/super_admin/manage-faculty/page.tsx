@@ -13,6 +13,7 @@ const ManageFacultyPage = () => {
                 <UMBreadCrumb
                     items={[
                         {
+                           
                             label: `${role}`,
                             link: `/${role}`,
 
