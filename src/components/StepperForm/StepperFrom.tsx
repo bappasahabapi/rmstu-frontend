@@ -18,8 +18,8 @@ interface IStepsProps {
 }
 
 const StepperForm = ({ steps, submitHandler, navigateLink }: IStepsProps) => {
+    
     const router = useRouter();
-
     const [current, setCurrent] = useState<number>(
         !!getFromLocalStorage("step")
             ? Number(JSON.parse(getFromLocalStorage("step") as string).step)
