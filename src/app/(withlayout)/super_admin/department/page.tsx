@@ -3,7 +3,7 @@ import React from 'react';
 const Department = () => {
     return (
         <div>
-            <h1>Department Page</h1>
+            <h1 style={{textAlign:'center'}}>Department Page</h1>
         </div>
     );
 };
