@@ -21,7 +21,7 @@ const ManageFacultyPage = () => {
                     ]}
                 />
                 <h1 style={{ textAlign: "center" }}>Manage Students Page</h1>
-                <Link href="/super_admin/manage-factulty/create">
+                <Link href="/super_admin/manage-faculty/create">
                     <Button type="primary">Create</Button>
                 </Link>
             </div>

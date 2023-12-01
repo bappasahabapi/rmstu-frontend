@@ -9,7 +9,7 @@ import React from 'react';
 const CreateStudentPage = () => {
     const steps = [
         {
-            title: 'Student Information',
+            title: '🪪 Student Information',
             content: <StudentInfo />,
         },
         {
@@ -38,7 +38,7 @@ const CreateStudentPage = () => {
 
     return (
         <div>
-            <h1 style={{ textAlign: 'center' }}>Create Student Page</h1>
+            <h1 style={{ textAlign: 'center' ,marginBottom:'15px' }}>Create Student 🧑‍🎓</h1>
             <StepperForm
                 submitHandler={(value) => {
                     handleStudentSubmit(value);

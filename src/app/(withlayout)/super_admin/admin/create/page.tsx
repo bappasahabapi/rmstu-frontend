@@ -33,7 +33,7 @@ const CreateAdminPage = () => {
                     },
                 ]}
             />
-            <h1 style={{ textAlign: 'center' }}>Create Admin </h1>
+            <h1 style={{ textAlign: 'center' }}>Create An Admin 👨🏻‍💼 </h1>
             <div>
                 <Form submitHandler={onSubmit} resolver={yupResolver(adminSchema)}>
                     <div

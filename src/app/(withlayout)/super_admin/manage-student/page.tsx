@@ -22,7 +22,7 @@ const ManageStudentsPage = () => {
                     },
                 ]}
             />
-            <h1 style={{textAlign:"center"}}>Manage Students Page</h1>
+            <h1 style={{textAlign:"center"}}>Students List 👨‍👩‍👦‍👦</h1>
             <Link  href="/super_admin/manage-student/create">
                 <Button type="primary">Create</Button>
             </Link>
