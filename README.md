@@ -17,6 +17,7 @@
 
 
 ## Branches
+- 13  [From Validation yup](https://github.com/bappasahabapi/rmstu-frontend/tree/v3/13/yup-form-input-validation)
 - 12  [Reusable Component](https://github.com/bappasahabapi/rmstu-frontend/tree/v3/12/reusable)
 - 11  [Role Based Route](https://github.com/bappasahabapi/rmstu-frontend/tree/v3/11/role-based-route)
 - 10  🦋[**Login Logout Handle**](https://github.com/bappasahabapi/rmstu-frontend/tree/v2/10/loginLogout) - 2

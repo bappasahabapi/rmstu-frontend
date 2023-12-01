@@ -6,6 +6,7 @@ import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 
 type FormConfig={
     defaultValues?:Record<string,any>;
+    resolver?:any;
 };
 
 type FormProps={
@@ -14,16 +15,15 @@ type FormProps={
 } & FormConfig;
 
 
-const Form = ({children,submitHandler,defaultValues}:FormProps) => {
+const Form = ({children,submitHandler,defaultValues,resolver}:FormProps) => {
 
     const formConfig:FormConfig={};
 
     //check js truthy value. not working on falsy value
     if(!!defaultValues) formConfig["defaultValues"]=defaultValues;
+    if(!!resolver) formConfig["resolver"]=resolver;
 
     const methods=useForm<FormProps>(formConfig);
-    // console.log(methods);
-
     const {handleSubmit,reset}=methods;
 
     const onSubmit = (data:any) => {
