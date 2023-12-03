@@ -30,13 +30,11 @@ const LoginPage = () => {
             // console.log(res)
             if (res?.accessToken) {
                 router.push("/profile");
-                message.success("User is Successfully logged in")
-                // setShowSuccessMessage(true);
-                // setTimeout(() => {
-                //     setShowSuccessMessage(false);
-                //     router.push("/profile");
-                //   }, 1000);
-                // router.push("/profile")
+                message.open({
+                    type: "success",
+                    content:"User is Successfully logged in",
+                    duration:1
+                  })
             }
             storeUserInfo({ accessToken: res?.accessToken });
         }
