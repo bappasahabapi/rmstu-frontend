@@ -1,3 +1,4 @@
+import { tagTypes } from "../tag-types";
 import { baseApi } from "./baseApi"
 // http://localhost:3030/api/v1/auth/login
 
@@ -11,7 +12,7 @@ export  const authApi = baseApi.injectEndpoints({
                 method:'POST',
                 data: loginData,
             }),
-            invalidatesTags:['user']
+            invalidatesTags:[tagTypes.user]
         }),
     }),
 })
