@@ -12,6 +12,7 @@ import { Button, Input } from "antd";
 import Link from "next/link";
 import { useState } from "react";
 import ActionBar from "@/components/ui/ActionBar";
+import { useDebounced } from "@/redux/hooks";
 
 const ManageDepartmentPage = () => {
 
@@ -27,7 +28,18 @@ const ManageDepartmentPage = () => {
   query["page"] = page;
   query["sortBy"] = sortBy;
   query["sortOrder"] = sortOrder;
-  query["searchTerm"] = searchTerm;
+  // query["searchTerm"] = searchTerm;
+
+  //hook create
+  const debouncedTerm = useDebounced({
+    searchQuery: searchTerm,
+    delay: 500,
+  });
+
+  if (!!debouncedTerm) {
+    // query["searchTerm"] = searchTerm;
+    query["searchTerm"] = debouncedTerm;
+  }
 
 
   const { data, isLoading } = useDepartmentsQuery({ ...query });
