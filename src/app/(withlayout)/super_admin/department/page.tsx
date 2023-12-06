@@ -2,16 +2,16 @@
 import {
   DeleteOutlined,
   EditOutlined,
-  EditFilled,
   EyeOutlined,
   ReloadOutlined,
 } from "@ant-design/icons";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
 import UMTable from "@/components/ui/UMTable";
 import { useDepartmentsQuery } from "@/redux/api/departmentApi";
-import { Button } from "antd";
+import { Button, Input } from "antd";
 import Link from "next/link";
 import { useState } from "react";
+import ActionBar from "@/components/ui/ActionBar";
 
 const ManageDepartmentPage = () => {
 
@@ -30,7 +30,6 @@ const ManageDepartmentPage = () => {
   query["searchTerm"] = searchTerm;
 
 
-  // const {data,isLoading}=useDepartmentsQuery(undefined);
   const { data, isLoading } = useDepartmentsQuery({ ...query });
   const departments = data?.departments;
   const meta = data?.meta;
@@ -50,41 +49,40 @@ const ManageDepartmentPage = () => {
       render: function (data: any) {
         return (
           <>
-           <Button
-              style={{
-                margin: "0px 5px",
-                backgroundColor:'green-light'
-              }}
-              onClick={() => console.log(data)}
-              type="primary" 
-            >
-              <  EyeOutlined />
-            </Button>
-          <Link href={`/super_admin/department/edit/${data?.id}`}>
             <Button
               style={{
                 margin: "0px 5px",
+                backgroundColor: 'green-light'
               }}
               onClick={() => console.log(data)}
               type="primary"
             >
-              <EditOutlined />
+              <  EyeOutlined />
             </Button>
-          </Link>
-          <Button
-            onClick={() => console.log(data)}
-            type="primary"
-            danger
-          >
-            <DeleteOutlined />
-          </Button>
-        </>
+            <Link href={`/super_admin/department/edit/${data?.id}`}>
+              <Button
+                style={{
+                  margin: "0px 5px",
+                }}
+                onClick={() => console.log(data)}
+                type="primary"
+              >
+                <EditOutlined />
+              </Button>
+            </Link>
+            <Button
+              onClick={() => console.log(data)}
+              type="primary"
+              danger
+            >
+              <DeleteOutlined />
+            </Button>
+          </>
 
         )
       }
     },
   ];
-
 
   const onPaginationChange = (pageNo: number, pageSize: number) => {
     setPage(page);
@@ -96,6 +94,12 @@ const ManageDepartmentPage = () => {
     setSortBy(field as string);
     setSortOrder(order === "ascend" ? "asc" : "desc");
 
+  };
+
+  const resetFilters =()=>{
+    setSortOrder("");
+    setSortBy("");
+    setSearchTerm("");
   }
 
 
@@ -109,10 +113,31 @@ const ManageDepartmentPage = () => {
           },
         ]}
       />
-      <h1>Department List</h1>
-      <Link href="/super_admin/department/create">
-        <Button style={{marginTop:"10px", backgroundColor:"#33E3FF"}} type="primary" >Create Department </Button>
-      </Link>
+
+      <ActionBar title="Department List">
+        <Input
+          type="text"
+          size="large"
+          placeholder="Search ..."
+          style={{ width: "40%" }}
+          onChange={(e) => setSearchTerm(e.target.value)}
+
+        />
+        <div>
+        {
+            (!!sortBy || !!sortOrder || !!searchTerm)
+            && <Button type="primary" style={{ marginRight:"15px", backgroundColor:"yellowgreen" }}>
+              <ReloadOutlined onClick={resetFilters} />
+            </Button>
+          }
+          <Link href="/super_admin/department/create">
+            <Button style={{ backgroundColor: "#33E3FF", }} type="primary" >Create Department </Button>
+          </Link>
+         
+        </div>
+
+      </ActionBar>
+
       <UMTable
         loading={isLoading}
         columns={columnsData}
