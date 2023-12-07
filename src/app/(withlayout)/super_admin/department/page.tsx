@@ -7,8 +7,8 @@ import {
 } from "@ant-design/icons";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
 import UMTable from "@/components/ui/UMTable";
-import { useDepartmentsQuery } from "@/redux/api/departmentApi";
-import { Button, Input } from "antd";
+import { useDeleteDepartmentMutation, useDepartmentsQuery } from "@/redux/api/departmentApi";
+import { Button, Input, message } from "antd";
 import Link from "next/link";
 import { useState } from "react";
 import ActionBar from "@/components/ui/ActionBar";
@@ -44,8 +44,25 @@ const ManageDepartmentPage = () => {
 
 
   const { data, isLoading } = useDepartmentsQuery({ ...query });
+  const [deleteDepartment]=useDeleteDepartmentMutation();
   const departments = data?.departments;
   const meta = data?.meta;
+
+
+  //todo: Delete Department
+  const deleteHandler = async (id:string) => {
+    message.open({
+        type: "warning",
+        content: "Deleting Department...",
+    });
+    try {
+       await deleteDepartment(id) // set to redux store
+        message.success("Department Successfully Deleted :( ");
+    } catch (err: any) {
+        console.error(err.message);
+        message.error(err.message);
+    }
+};
 
   const columnsData = [
     {
@@ -77,7 +94,7 @@ const ManageDepartmentPage = () => {
               </Button>
             </Link>
             <Button
-              onClick={() => console.log(data)}
+              onClick={() => deleteHandler(data?.id)}
               type="primary"
               danger
             >
