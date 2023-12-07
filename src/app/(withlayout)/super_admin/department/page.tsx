@@ -2,7 +2,6 @@
 import {
   DeleteOutlined,
   EditOutlined,
-  EyeOutlined,
   ReloadOutlined,
 } from "@ant-design/icons";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
@@ -14,10 +13,15 @@ import { useState } from "react";
 import ActionBar from "@/components/ui/ActionBar";
 import { useDebounced } from "@/redux/hooks";
 import dayjs from "dayjs";
+import UMModal from "@/components/ui/Modal";
+
 
 const ManageDepartmentPage = () => {
 
   const query: Record<string, any> = {};
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [departmentIdToDelete, setDepartmentIdToDelete] = useState<string | null>(null);
 
   const [page, setPage] = useState<number>(1);
   const [size, setSize] = useState<number>(4);
@@ -47,22 +51,49 @@ const ManageDepartmentPage = () => {
   const [deleteDepartment]=useDeleteDepartmentMutation();
   const departments = data?.departments;
   const meta = data?.meta;
+  
 
 
   //todo: Delete Department
-  const deleteHandler = async (id:string) => {
+//   const deleteHandler = async (id:string) => {
+//     message.open({
+//         type: "warning",
+//         content: "Deleting Department...",
+//     });
+//     try {
+//        await deleteDepartment(id) // set to redux store
+//         message.success("Department Successfully Deleted :( ");
+//     } catch (err: any) {
+//         console.error(err.message);
+//         message.error(err.message);
+//     }
+// };
+
+//todo: using modals
+const deleteHandler = (id: string) => {
+  setDepartmentIdToDelete(id);
+  setIsModalVisible(true);
+};
+
+const onOkDeleteHandler = async () => {
+  if (departmentIdToDelete) {
     message.open({
-        type: "warning",
-        content: "Deleting Department...",
+      type: 'warning',
+      content: 'Deleting Department...',
     });
     try {
-       await deleteDepartment(id) // set to redux store
-        message.success("Department Successfully Deleted :( ");
+      await deleteDepartment(departmentIdToDelete);
+      message.success('Department Successfully Deleted :(');
     } catch (err: any) {
-        console.error(err.message);
-        message.error(err.message);
+      console.error(err.message);
+      message.error(err.message);
+    } finally {
+      setIsModalVisible(false);
+      setDepartmentIdToDelete(null);
     }
+  }
 };
+
 
   const columnsData = [
     {
@@ -82,6 +113,7 @@ const ManageDepartmentPage = () => {
       render: function (data: any) {
         return (
           <>
+
             <Link href={`/super_admin/department/edit/${data?.id}`}>
               <Button
                 style={{
@@ -161,6 +193,8 @@ const ManageDepartmentPage = () => {
 
       </ActionBar>
 
+
+
       <UMTable
         loading={isLoading}
         columns={columnsData}
@@ -172,6 +206,21 @@ const ManageDepartmentPage = () => {
         onTableChange={onTableChange}
         showPagination={true}
       />
+    {/* <UMModal
+    visible={isModalVisible}
+    onOk={onOkDeleteHandler}
+    onCancel={() => setIsModalVisible(false)}
+    title="Confirmatation"
+    /> */}
+
+    <UMModal
+        visible={isModalVisible}
+        onOk={onOkDeleteHandler}
+        onCancel={() => setIsModalVisible(false)}
+        title={data?.departments.title || "Confirmation ❗❗"}
+    >
+      <h1>Are You Sure Want to Delete ❓ </h1>
+    </UMModal>
     </div>
   );
 };
