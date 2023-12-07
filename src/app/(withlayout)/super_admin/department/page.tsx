@@ -13,13 +13,14 @@ import Link from "next/link";
 import { useState } from "react";
 import ActionBar from "@/components/ui/ActionBar";
 import { useDebounced } from "@/redux/hooks";
+import dayjs from "dayjs";
 
 const ManageDepartmentPage = () => {
 
   const query: Record<string, any> = {};
 
   const [page, setPage] = useState<number>(1);
-  const [size, setSize] = useState<number>(10);
+  const [size, setSize] = useState<number>(4);
   const [sortBy, setSortBy] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -54,6 +55,9 @@ const ManageDepartmentPage = () => {
     {
       title: 'CreatedAt',
       dataIndex: 'createdAt',
+      render: function (data: any) {
+        return data && dayjs(data).format("MMM D, YYYY hh:mm A");
+      },
       sorter: true,
     },
     {
@@ -61,16 +65,6 @@ const ManageDepartmentPage = () => {
       render: function (data: any) {
         return (
           <>
-            <Button
-              style={{
-                margin: "0px 5px",
-                backgroundColor: 'green-light'
-              }}
-              onClick={() => console.log(data)}
-              type="primary"
-            >
-              <  EyeOutlined />
-            </Button>
             <Link href={`/super_admin/department/edit/${data?.id}`}>
               <Button
                 style={{
@@ -143,7 +137,7 @@ const ManageDepartmentPage = () => {
             </Button>
           }
           <Link href="/super_admin/department/create">
-            <Button style={{ backgroundColor: "#33E3FF", }} type="primary" >Create Department </Button>
+            <Button style={{ backgroundColor: "#228B22", }} type="primary" >Create Department </Button>
           </Link>
          
         </div>
