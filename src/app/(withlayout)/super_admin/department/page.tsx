@@ -217,9 +217,9 @@ const onOkDeleteHandler = async () => {
         visible={isModalVisible}
         onOk={onOkDeleteHandler}
         onCancel={() => setIsModalVisible(false)}
-        title={data?.departments.title || "Confirmation ❗❗"}
+        title={data?.departments.title || "Confirmation❗"}
     >
-      <h1>Are You Sure Want to Delete ❓ </h1>
+      <h1 style={{backgroundColor:"aquamarine"}}>Are You Sure for delete Department❓ </h1>
     </UMModal>
     </div>
   );
