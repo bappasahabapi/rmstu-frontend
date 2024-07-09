@@ -1,6 +1,6 @@
 ## Run the frontend
 - **1st** Run the api gateway backend.
-    - `brew service start redis`
+    - `brew services start redis`
     - `yarn run dev`
 - **2nd** Run the api auth service backend.
     - `yarn start`
