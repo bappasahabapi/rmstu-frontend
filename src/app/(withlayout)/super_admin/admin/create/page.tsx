@@ -24,7 +24,7 @@ const CreateAdminPage = () => {
     console.log(data);
     //@ts-ignore
     const departments:IDepartment[] = data?.departments;
-    const departmentOptions = departments && departments.map((department)=>{
+    const departmentOptions = departments && departments?.map((department)=>{
         return{
             label:department?.title,
             value:department?.id
